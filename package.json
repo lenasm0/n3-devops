@@ -1,0 +1,30 @@
+{
+  "name": "n3-devops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "lint": "eslint . --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenasm0/n3-devops.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lenasm0/n3-devops/issues"
+  },
+  "homepage": "https://github.com/lenasm0/n3-devops#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4"
+  }
+}
