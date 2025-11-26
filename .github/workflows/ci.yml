@@ -2,9 +2,11 @@ name: CI - Node.js
 
 on:
   push:
-    branches: [develop]
+    branches:
+      - develop
   pull_request:
-    branches: [develop]
+    branches:
+      - develop
 
 jobs:
   build:
@@ -14,7 +16,7 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Configurar Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -22,8 +24,9 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Rodar ESLint (análise estática)
-  	run: npx eslint index.js
+      - name: Rodar ESLint
+        run: npx eslint index.js
 
-      - name: Rodar testes com cobertura
+      - name: Rodar testes
         run: npx jest --coverage
+
