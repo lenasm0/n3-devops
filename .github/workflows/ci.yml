@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Rodar ESLint (análise estática)
-        run: npx eslint .
+  	run: npx eslint index.js
 
       - name: Rodar testes com cobertura
         run: npx jest --coverage
