@@ -31,7 +31,12 @@ jobs:
       - name: Tests with coverage 
         run: npx jest --coverage 
  
-      - name: Delivery build 
-        if: success() 
-        run: | 
-          echo Gerando build interno... 
+      - name: Delivery build
+        if: success()
+        run: |
+          echo Gerando build interno...
+          rm -rf dist || true
+          mkdir -p dist
+          cp -R * dist/
+          echo Build gerado em /dist
+
