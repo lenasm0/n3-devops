@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.status(200).json({ app: "N3 DevOps", status: "online", version: "1.0.2", message: "API rodando com sucesso 🚀" });
+  res.status(200).json({ app: "N3 DevOps", status: "online", version: "1.0.3", message: "API rodando com sucesso 🚀" });
 });
 
 app.get("/health", (req, res) => {
