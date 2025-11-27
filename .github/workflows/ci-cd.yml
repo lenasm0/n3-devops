@@ -1,0 +1,37 @@
+name: Continuous Integration + Continuous Delivery 
+ 
+on: 
+  push: 
+    branches: 
+      - develop 
+  pull_request: 
+    branches: 
+      - develop 
+ 
+jobs: 
+  ci_cd: 
+    runs-on: ubuntu-latest 
+ 
+    steps: 
+      - name: Checkout 
+        uses: actions/checkout@v4 
+ 
+      - name: Setup Node 
+        uses: actions/setup-node@v4 
+        with: 
+          node-version: 20 
+          cache: "npm" 
+ 
+      - name: Install dependencies 
+        run: npm ci 
+ 
+      - name: Lint 
+        run: npx eslint . 
+ 
+      - name: Tests with coverage 
+        run: npx jest --coverage 
+ 
+      - name: Delivery build 
+        if: success() 
+        run: | 
+          echo Gerando build interno... 
