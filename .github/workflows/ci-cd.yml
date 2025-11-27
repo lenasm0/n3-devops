@@ -34,9 +34,14 @@ jobs:
       - name: Delivery build
         if: success()
         run: |
-          echo Gerando build interno...
+          echo "Gerando build interno..."
+          # Nenhuma cópia para 'dist' - evitar copiar dist para dentro de si mesmo
           rm -rf dist || true
           mkdir -p dist
-          cp -R * dist/
-          echo Build gerado em /dist
+          # Copia apenas os arquivos necessários (exemplos); NÃO copie a própria pasta dist
+          copy package.json dist\ 2>nul || type nul > dist\package.json
+          copy index.js dist\ 2>nul || type nul > dist\index.js
+          if exist README.md copy README.md dist\ 2>nul
+          echo "Build gerado em dist/"
+
 
