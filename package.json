@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "jest --coverage",
     "lint": "eslint . --ext .js"
   },
@@ -28,6 +29,8 @@
     "babel-jest": "^30.2.0",
     "eslint": "^9.39.1",
     "jest": "^30.2.0",
-    "supertest": "^7.1.4"
+    "supertest": "^7.1.4",
+    "nodemon": "^3.1.0"
   }
 }
+
