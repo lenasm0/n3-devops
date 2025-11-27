@@ -35,13 +35,11 @@ jobs:
         if: success()
         run: |
           echo "Gerando build interno..."
-          # Nenhuma cópia para 'dist' - evitar copiar dist para dentro de si mesmo
-          rm -rf dist || true
-          mkdir -p dist
-          # Copia apenas os arquivos necessários (exemplos); NÃO copie a própria pasta dist
-          copy package.json dist\ 2>nul || type nul > dist\package.json
-          copy index.js dist\ 2>nul || type nul > dist\index.js
-          if exist README.md copy README.md dist\ 2>nul
+          rm -rf dist
+          mkdir dist
+          cp package.json dist/ 2>/dev/null || true
+          cp index.js dist/ 2>/dev/null || true
+          [ -f README.md ] && cp README.md dist/
           echo "Build gerado em dist/"
 
 
